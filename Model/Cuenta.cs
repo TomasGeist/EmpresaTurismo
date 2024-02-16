@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EmpresaTurismo.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,13 +12,19 @@ namespace EmpresaTurismo
         private string nombre;
         private int saldo;
         public List <Ticket> ticketComprados = new List <Ticket> ();
+        private DatosPersonales datosP;
+
+        
 
         public string Nombre { 
             get { return nombre; } 
         }
 
-        public int Saldo { get => saldo; set => saldo = value;}
-        //private Vuelos Vuelos[];
+        public int Saldo
+        {
+            get { return saldo; } 
+        }
+        
 
         public Cuenta(string nombre)
         {
@@ -25,10 +32,27 @@ namespace EmpresaTurismo
             this.saldo = 0;
         }
 
+        public void agregarDatos(DatosPersonales datosP)
+        {
+            this.datosP = datosP;
+        }
+
         public void agregarTicket(Vuelos vuelo)
         {
-           
-            ticketComprados.Add(new Ticket(false, vuelo, Program.form1.cuentaNueva));
+            Ticket nuevoTicket = new Ticket(false, vuelo, Program.form1.cuentaNueva);
+            ticketComprados.Add(nuevoTicket);
+            sumarSaldo(nuevoTicket);
+
+        }
+    
+        public void sumarSaldo(Ticket ticket)
+        {
+            saldo += ticket.vuelo.Precio;
+        }
+
+        public void restarSaldo(Ticket ticket)
+        {
+            saldo -= ticket.vuelo.Precio;
         }
     }
 }

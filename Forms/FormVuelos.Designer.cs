@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormVuelos));
             this.btnVolver = new System.Windows.Forms.Button();
             this.lbListaVuelos = new System.Windows.Forms.Label();
             this.lbVuelosDisponibles = new System.Windows.Forms.ListBox();
             this.btnComprar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnFiltrar = new System.Windows.Forms.Button();
             this.cbDestinos = new System.Windows.Forms.ComboBox();
             this.labDestinos = new System.Windows.Forms.Label();
             this.cbFecha = new System.Windows.Forms.ComboBox();
@@ -92,18 +93,18 @@
             this.btnComprar.UseVisualStyleBackColor = false;
             this.btnComprar.Click += new System.EventHandler(this.btnComprar_Click);
             // 
-            // button1
+            // btnFiltrar
             // 
-            this.button1.BackColor = System.Drawing.Color.FloralWhite;
-            this.button1.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.Color.Orange;
-            this.button1.Location = new System.Drawing.Point(414, 343);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(95, 33);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Filtrar";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnFiltrar.BackColor = System.Drawing.Color.FloralWhite;
+            this.btnFiltrar.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold);
+            this.btnFiltrar.ForeColor = System.Drawing.Color.Orange;
+            this.btnFiltrar.Location = new System.Drawing.Point(414, 343);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(95, 33);
+            this.btnFiltrar.TabIndex = 4;
+            this.btnFiltrar.Text = "Filtrar";
+            this.btnFiltrar.UseVisualStyleBackColor = false;
+            this.btnFiltrar.Click += new System.EventHandler(this.button1_Click);
             // 
             // cbDestinos
             // 
@@ -198,7 +199,7 @@
             // btnReset
             // 
             this.btnReset.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReset.Image = global::EmpresaTurismo.Properties.Resources.trash;
+            this.btnReset.Image = ((System.Drawing.Image)(resources.GetObject("btnReset.Image")));
             this.btnReset.Location = new System.Drawing.Point(353, 349);
             this.btnReset.Margin = new System.Windows.Forms.Padding(0);
             this.btnReset.Name = "btnReset";
@@ -209,7 +210,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::EmpresaTurismo.Properties.Resources.risas;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(-8, -1);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(821, 460);
@@ -228,17 +229,18 @@
             this.Controls.Add(this.cbFecha);
             this.Controls.Add(this.labDestinos);
             this.Controls.Add(this.cbDestinos);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.btnComprar);
             this.Controls.Add(this.lbVuelosDisponibles);
             this.Controls.Add(this.lbListaVuelos);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FormVuelos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormVuelos";
+            this.Text = "Risas Turismo";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -251,7 +253,7 @@
         private System.Windows.Forms.Label lbListaVuelos;
         private System.Windows.Forms.ListBox lbVuelosDisponibles;
         private System.Windows.Forms.Button btnComprar;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnFiltrar;
         private System.Windows.Forms.ComboBox cbDestinos;
         private System.Windows.Forms.Label labDestinos;
         private System.Windows.Forms.ComboBox cbFecha;

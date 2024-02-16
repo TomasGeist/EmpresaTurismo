@@ -14,7 +14,12 @@ namespace EmpresaTurismo
     {
         string Destino = "";
         string Fecha = "";
+        public List<Vuelos> vuelosFiltrados = new List<Vuelos>();
         
+
+
+
+
         public void actualizarLista()
         {
             lbVuelosDisponibles.Items.Clear();
@@ -24,20 +29,24 @@ namespace EmpresaTurismo
                 {
                     if (vuelo.Destino == Destino && vuelo.Fecha == Fecha)
                     {
+                        vuelosFiltrados.Add(vuelo);
                         lbVuelosDisponibles.Items.Add($"DESTINO: {vuelo.Destino} || FECHA: {vuelo.Fecha} ||  PRECIO: {vuelo.Precio} || ASIENTOS DISPONIBLES: {vuelo.asientos}");
                     }
                 }
                
                    else if (vuelo.Fecha == Fecha)
                     {
-                        lbVuelosDisponibles.Items.Add($"DESTINO: {vuelo.Destino} || FECHA: {vuelo.Fecha} ||  PRECIO: {vuelo.Precio} || ASIENTOS DISPONIBLES: {vuelo.asientos}");
+                    vuelosFiltrados.Add(vuelo);
+                    lbVuelosDisponibles.Items.Add($"DESTINO: {vuelo.Destino} || FECHA: {vuelo.Fecha} ||  PRECIO: {vuelo.Precio} || ASIENTOS DISPONIBLES: {vuelo.asientos}");
                     } else if (vuelo.Destino == Destino)
                     {
-                        lbVuelosDisponibles.Items.Add($"DESTINO: {vuelo.Destino} || FECHA: {vuelo.Fecha} ||  PRECIO: {vuelo.Precio} || ASIENTOS DISPONIBLES: {vuelo.asientos}");
+                    vuelosFiltrados.Add(vuelo);
+                    lbVuelosDisponibles.Items.Add($"DESTINO: {vuelo.Destino} || FECHA: {vuelo.Fecha} ||  PRECIO: {vuelo.Precio} || ASIENTOS DISPONIBLES: {vuelo.asientos}");
                     }
                 
                 if (vuelo.Disponible == true && Destino == "" && Fecha == "")
                 {
+                    vuelosFiltrados.Add(vuelo);
                     lbVuelosDisponibles.Items.Add($"DESTINO: {vuelo.Destino} || FECHA: {vuelo.Fecha} ||  PRECIO: {vuelo.Precio} || ASIENTOS DISPONIBLES: {vuelo.asientos}");
                 }
             } 
@@ -61,8 +70,8 @@ namespace EmpresaTurismo
         {
             if (lbVuelosDisponibles.SelectedIndex > -1)
             {
-                Program.form1.vuelos[lbVuelosDisponibles.SelectedIndex].comprarAsiento(1);
-                Program.form1.cuentaNueva.agregarTicket(Program.form1.vuelos[lbVuelosDisponibles.SelectedIndex]);
+                vuelosFiltrados[lbVuelosDisponibles.SelectedIndex].comprarAsiento(1);
+                Program.form1.cuentaNueva.agregarTicket(vuelosFiltrados[lbVuelosDisponibles.SelectedIndex]);
                 actualizarLista();
                 FormReservaExitosa reservaExitosa = new FormReservaExitosa();
                 reservaExitosa.ShowDialog();
@@ -72,7 +81,7 @@ namespace EmpresaTurismo
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            vuelosFiltrados.Clear();
             Destino = cbDestinos.Text;
             Fecha = cbFecha.Text;
             actualizarLista();
@@ -86,6 +95,7 @@ namespace EmpresaTurismo
             Fecha = "";
             cbDestinos.Text = "";
             cbFecha.Text = "";
+            vuelosFiltrados.Clear();
             actualizarLista();
         }
     }

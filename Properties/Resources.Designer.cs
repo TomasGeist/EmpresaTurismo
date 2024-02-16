@@ -73,6 +73,16 @@ namespace EmpresaTurismo.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap danger {
+            get {
+                object obj = ResourceManager.GetObject("danger", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap fondoAvion {
             get {
                 object obj = ResourceManager.GetObject("fondoAvion", resourceCulture);
@@ -96,6 +106,16 @@ namespace EmpresaTurismo.Properties {
         internal static System.Drawing.Bitmap risas {
             get {
                 object obj = ResourceManager.GetObject("risas", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap risaslogo {
+            get {
+                object obj = ResourceManager.GetObject("risaslogo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

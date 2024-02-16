@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EmpresaTurismo.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,12 +25,29 @@ namespace EmpresaTurismo
             {
                 lbVuelosComprados.Items.Add($"{ticket.vuelo.Destino} | fecha: {ticket.vuelo.Fecha} | {(ticket.pago == true ? pagado : noPagado)}");
             }
+            
+            labSaldoRestante.Text = "Saldo a pagar: $" + (Program.form1.cuentaNueva.Saldo).ToString();
+
+            if (Program.form1.cuentaNueva.Saldo == 0)
+            {
+                btnPagarTodo.Enabled = false;
+                btnPagarSelec.Enabled = false;
+
+            }
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
             Form2 form = new Form2();
             form.Show();
+            this.Close();
+        }
+
+        private void btnPagarTodo_Click(object sender, EventArgs e)
+        {
+            DatosCheckout datos = new DatosCheckout();
+            datos.Show();
             this.Close();
         }
     }

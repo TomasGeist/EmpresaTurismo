@@ -151,6 +151,9 @@ namespace EmpresaTurismo
             this.ResumeLayout(false);
             this.PerformLayout();
 
+
+
+
         }
 
         #endregion
